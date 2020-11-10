@@ -3,7 +3,7 @@ const db = require('../models');
 module.exports = (app) => {
     app.post("/api/newUser", (req, res) => {
         db.User.create({
-            userName: req.body.userName,
+            email: req.body.email,
             password: req.body.password
         }).then(dbUser => {
             res.json(dbUser)
