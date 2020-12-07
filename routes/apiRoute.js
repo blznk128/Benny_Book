@@ -27,4 +27,9 @@ module.exports = (app) => {
             });
         }
     }); 
+
+    app.get("/logOut", function(req,res) {
+        req.logout();
+        res.redirect("/")
+    })
 }

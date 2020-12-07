@@ -15,6 +15,12 @@ module.exports = (sequelize, DataTypes) => {
         return (this.password === password)
       };
 
+      User.associate = (models) => {
+        User.hasMany(models.Twit, {
+            onDelete: "cascade",
+        });
+    };
+
     // User.hook("beforeCreate", function(user) {
     //     user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
     //   });
