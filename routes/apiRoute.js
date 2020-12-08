@@ -32,4 +32,13 @@ module.exports = (app) => {
         req.logout();
         res.redirect("/")
     })
+
+    app.post("/api/saveTwit", (req, res) => {
+        db.Twit.create(
+            req.body
+        )
+        .then((dbTwit) => {
+            res.json(dbTwit)
+        })
+    });  
 }

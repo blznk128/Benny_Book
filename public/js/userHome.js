@@ -1,9 +1,19 @@
 $.get("/api/user_data").then(function(data) {
-    $("#user").text(" " + data.email);
+    $("#user").text(" " + data.id);
   });
 
 const userTwit = $("#textarea1")
 
+function addTwit(currentTwit) {
+  $.post("/api/saveTwit", currentTwit, () => {
+
+  })
+}
+
 function submitTwit() {
-  console.log(userTwit.val())
+  event.preventDefault()
+  let newTwit = {
+    twit: userTwit.val()
+  }
+  addTwit(newTwit)
 }
